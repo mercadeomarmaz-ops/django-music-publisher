@@ -19,7 +19,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", None)
 DEBUG = os.getenv("DEBUG", False)
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
-
+CSRF_TRUSTED_ORIGINS = ["https://dmp-2-kz52x.ondigitalocean.app"]
 INSTALLED_APPS = [
     "music_publisher.apps.MusicPublisherConfig",
     "django.contrib.admin",
