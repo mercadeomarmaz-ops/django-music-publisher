@@ -21,7 +21,7 @@ DEBUG = os.getenv("DEBUG", False)
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
 # Permitir tu dominio específico y cualquier subdominio de DigitalOcean
 CSRF_TRUSTED_ORIGINS = [
-    "https://dmp-p92vh.ondigitalocean.app",
+    "https://dmp-p92vh.ondigitalocean.app", 
     "https://*.ondigitalocean.app"
 ]
 
