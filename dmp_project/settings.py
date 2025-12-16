@@ -19,11 +19,16 @@ SECRET_KEY = os.getenv("SECRET_KEY", None)
 DEBUG = os.getenv("DEBUG", False)
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
+# Permitir tu dominio específico y cualquier subdominio de DigitalOcean
 CSRF_TRUSTED_ORIGINS = [
     "https://dmp-p92vh.ondigitalocean.app",
-    "https://*.ondigitalocean.app",
-    "https://*.digitalocean.app"
+    "https://*.ondigitalocean.app"
 ]
+
+# Configuración Proxy (DEJA SOLO ESTO, COMENTA LO DEMÁS)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# USE_X_FORWARDED_HOST = True  <-- ESTO A VECES DA ERROR, LO DESACTIVAMOS
+# USE_X_FORWARDED_PORT = True  <-- ESTO A VECES DA ERROR, LO DESACTIVAMOS
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # USE_X_FORWARDED_HOST = True
 # USE_X_FORWARDED_PORT = True
