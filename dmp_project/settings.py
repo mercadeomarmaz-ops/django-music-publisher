@@ -21,9 +21,8 @@ DEBUG = os.getenv("DEBUG", False)
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
 # Permitir tu dominio específico y cualquier subdominio de DigitalOcean
 # LO QUE DEBES PONER (PARA QUE LEA DIGITAL OCEAN):
-CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "https://dmp-p92vh.ondigitalocean.app").split(",")
-
-# Configuración Proxy
+CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "https://*.ondigitalocean.app").split(",")
+# Configuración Proxy y SSL
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
 SECURE_SSL_REDIRECT = True
