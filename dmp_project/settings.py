@@ -19,7 +19,10 @@ SECRET_KEY = os.getenv("SECRET_KEY", None)
 DEBUG = os.getenv("DEBUG", False)
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
-CSRF_TRUSTED_ORIGINS = ["https://dmp-p92vh.ondigitalocean.app"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://dmp-p92vh.ondigitalocean.app",
+    "https://*.ondigitalocean.app"
+]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
 USE_X_FORWARDED_PORT = True
