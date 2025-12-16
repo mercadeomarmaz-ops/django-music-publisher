@@ -13,3 +13,7 @@ if __name__ == "__main__":
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
+git add dmp_project/settings.py
+git add .
+git commit -m "Correccion configuracion CSRF para Digital Ocean"
+    git push origin master
