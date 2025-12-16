@@ -18,7 +18,21 @@ SECRET_KEY = os.getenv("SECRET_KEY", None)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", False)
 
+# --- INICIO DEL BLOQUE CORREGIDO ---
+
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
+
+# CORRECCIÓN DE ERROR CSRF:
+# 1. Intentamos leer la variable exacta desde Digital Ocean.
+# 2. Si no existe, permitimos cualquier subdominio de ondigitalocean.app
+CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "https://*.ondigitalocean.app").split(",")
+
+# Configuración de Seguridad y Proxy (SIN REPETIR LÍNEAS)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
+SECURE_SSL_REDIRECT = os.getenv("DEBUG", "False") == "False"  # Solo redirige a HTTPS en producción
+
+# --- FIN DEL BLOQUE CORREGIDO ---
 
 INSTALLED_APPS = [
     "music_publisher.apps.MusicPublisherConfig",
@@ -211,3 +225,4 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
     ]
 }
+LOGIN_REDIRECT_URL = "admin:index"
