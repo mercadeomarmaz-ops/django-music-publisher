@@ -20,18 +20,13 @@ DEBUG = os.getenv("DEBUG", False)
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
 # Permitir tu dominio específico y cualquier subdominio de DigitalOcean
-CSRF_TRUSTED_ORIGINS = [
-    "https://dmp-p92vh.ondigitalocean.app", 
-    "https://*.ondigitalocean.app"
-    "https://dmp-2-kz52x.ondigitalocean.app"
+# LO QUE DEBES PONER (PARA QUE LEA DIGITAL OCEAN):
+CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "https://*.ondigitalocean.app").split(",")
 
-]
-
-# Configuración Proxy (DEJA SOLO ESTO, COMENTA LO DEMÁS)
+# Configuración Proxy
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-# USE_X_FORWARDED_HOST = True  <-- ESTO A VECES DA ERROR, LO DESACTIVAMOS
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-# USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_HOST = True
+SECURE_SSL_REDIRECT = True
 
 INSTALLED_APPS = [
     "music_publisher.apps.MusicPublisherConfig",
