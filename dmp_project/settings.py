@@ -219,5 +219,4 @@ REST_FRAMEWORK = {
     ]
 }
 "Arreglo final URL DigitalOcean"
-LOGIN_REDIRECT_URL = "home"
-
+LOGIN_REDIRECT_URL = "admin:index"
