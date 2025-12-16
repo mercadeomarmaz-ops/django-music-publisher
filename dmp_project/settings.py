@@ -23,6 +23,8 @@ ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
 CSRF_TRUSTED_ORIGINS = [
     "https://dmp-p92vh.ondigitalocean.app", 
     "https://*.ondigitalocean.app"
+    "https://dmp-2-kz52x.ondigitalocean.app"
+
 ]
 
 # Configuración Proxy (DEJA SOLO ESTO, COMENTA LO DEMÁS)
